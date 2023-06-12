@@ -1,0 +1,12 @@
+<script language="js">
+    var propFile = new Packages.java.util.Properties();
+    var propFileStream = new Packages.java.io.FileInputStream("<path_to_config>/config.properties");
+    propFile.load(propFileStream);
+    propFileStream.close();
+    var propValue = propFile.getProperty("property_key");
+    mc.setProperty("DynamicProperty", propValue);
+</script>
+<log level="custom">
+    <property name="Dynamic Property" expression="get-property('DynamicProperty')"/>
+</log>
+

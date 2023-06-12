@@ -1,0 +1,111 @@
+all customers API:http://KNOTPC34:8285/services/datasource_DataService/customers
+
+
+sltcivarehydlkui 
+
+
+
+<operation name="addCustomer" returnRequestStatus="true">
+      <call-query href="insert_customers_query">
+            <with-param name="Company" query-param="Company"/>
+            <with-param name="Email" query-param="Email"/>
+            <with-param name="Country" query-param="Country"/>
+            <with-param name="ID" query-param="ID"/>
+            <with-param name="Name" query-param="Name"/>
+        </call-query>
+ </operation>
+
+
+<addCustomer>
+    <ID>555</ID>
+    <Name>Peter</Name>
+    
+    <Email>peter@wso2.com</Email>
+     <Country>Parker</Country>
+    <Company>Oyo</Company>
+</addCustomer>
+
+<query id="getCustomerByNumberQuery" useConfig="default">
+      <sql>select ID, Name, Email, Country, Company from Customers where ID=:ID</sql>
+      <result element="Entries" rowName="Entry">
+         <element column="ID" name="ID" xsdType="string"/>
+         <element column="Name" name="Name" xsdType="string"/>
+         <element column="Email" name="Email" xsdType="string"/>
+         <element column="Country" name="Country" xsdType="string"/>
+         <element column="Company" name="Company" xsdType="string"/>
+      </result>
+      <param name="ID" sqlType="STRING"/>
+   </query>
+  
+   <operation name="getCustomerByNumber">
+      <call-query href="getCustomerByNumberQuery">
+         <with-param name="ID" query-param="ID"/>
+      </call-query>
+   </operation>
+
+
+
+
+<resource method="GET" path="customers">
+        <call-query href="select_all_customers_query"/>
+    </resource>
+
+   <operation name="allCustomers">
+      <call-query href="select_all_customers_query"/>
+   </operation>
+
+
+
+ <dataServiceCall serviceName="datasource_DataService">
+                <operations type="request-box">
+                    <operation name="addCustomer">
+                        <param name="ID" value="629"/>
+                        <param name="Name" value="Chandrasekhar G"/>
+                        <param name="Email" value="chandraG@gmail.com"/>
+                        <param name="Country" value="India"/>
+                        <param name="Company" value="JAVA"/>
+                    </operation>
+                    <operation name="getCustomerByNumber">
+                        <param name="ID" value="629"/>
+                    </operation>
+                </operations>
+                <source type="inline"/>
+                <target type="body"/>
+            </dataServiceCall>
+
+<addCustomer_batch_req>
+    <addCustomer>
+    	<ID>777</ID>
+    	<Name>James</Name>
+    	<Email>James@wso2.com</Email>
+     	<Country>Portugal</Country>
+    	<Company>HDLanes</Company>
+    </addCustomer>
+    <addCustomer>
+    	<ID>555</ID>
+    	<Name>Jack Sparrow</Name>
+    	<Email>JackS@wso2.com</Email>
+     	<Country>Canada</Country>
+    	<Company>Sea</Company>
+    </addCustomer>
+</addCustomer_batch_req>
+
+
+<request_box>
+    <addCustomer>
+    	<ID>60</ID>
+    	<Name>William</Name>
+    	<Email>WilliamS@wso2.com</Email>
+     	<Country>Boulivia</Country>
+    	<Company>Ooredoo</Company>
+    </addCustomer>
+<getCustomerByNumber>
+    <ID>60</ID>
+</getCustomerByNumber>
+</request_box>
+
+
+
+<getCustomerByNumber>
+    <ID>555</ID>
+</getCustomerByNumber>

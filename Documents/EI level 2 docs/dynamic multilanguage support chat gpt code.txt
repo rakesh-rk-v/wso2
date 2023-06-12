@@ -1,0 +1,32 @@
+<sequence name="MultilanguageSequence" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
+    <!-- Extract the language from the request -->
+    <property name="Accept-Language" expression="$trp:Accept-Language" scope="transport"/>
+    
+    <!-- Set the default language if not provided -->
+    <property name="language" expression="fn:substring-before($ctx:Accept-Language, ',')" defaultValue="en"/>
+    
+    <!-- Load the language-specific resource bundle -->
+    <property name="ResourceBundle" expression="get-property('registry','gov:/path/to/resourcebundle_$ctx:language.properties')" scope="default"/>
+    
+    <!-- Perform the multilanguage processing -->
+    <switch source="$ctx:language">
+        <case regex="en">
+            <!-- English language processing -->
+            <log level="custom">
+                <property name="message" expression="get-property('ResourceBundle', 'key.en')"/>
+            </log>
+        </case>
+        <case regex="fr">
+            <!-- French language processing -->
+            <log level="custom">
+                <property name="message" expression="get-property('ResourceBundle', 'key.fr')"/>
+            </log>
+        </case>
+        <default>
+            <!-- Default language processing -->
+            <log level="custom">
+                <property name="message" expression="get-property('ResourceBundle', 'key.default')"/>
+            </log>
+        </default>
+    </switch>
+</sequence>

@@ -1,0 +1,142 @@
+select fname,lname,mail from training.employee where id=?
+UPDATE customers SET Company=?,Email=?,Country=?,Name=? WHERE ID=?
+DELETE FROM customers WHERE ID=?
+INSERT INTO customers(Company,Email,Country,ID,Name) VALUES(?,?,?,?,?)
+
+
+
+insert into customers (id, name, email, country, company) values(:id, :name, :email, :country, :company)
+
+insert into Employees (EmployeeNumber, FirstName, LastName, Email,Salary)
+ values(:EmployeeNumber,:FirstName,:LastName,:Email,:Salary)
+ERROR:INCOMPATIBLE_PARAMETERS_ERROR
+
+{ "Customers":
+      {"Customer":[
+        {"CustomerID":"$1",                       
+         "Details": {
+          "CustomerAddress":"$2",
+          "CustomerEmail":"$3",
+          "CustomerLocation":"$4",
+          "CustomerName":"$5"
+         }
+        }                 
+      ]
+    }           
+}
+
+
+<?xml version="1.0" encoding="UTF-8" ?>
+<root>
+  <ID>790</ID>
+  <Name>manovikas</Name>
+  <Email>lalith@gmail.com</Email>
+  <Country>Maldives</Country>
+  <Company>Lalith</Company>
+</root>
+
+
+{
+    "Id":"790",
+    "Name":"manovikas",
+    "Email":"lalith@gmail.com",
+    "Country":"Maldives",
+    "Company":"Lalith"
+}
+
+//Employee/Id
+json-eval($.Employee.Id)
+select * from training.employee
+
+{
+ "employees": {
+ "employee": [
+
+{
+
+"Id":$1,
+"Fname":$2,
+"Lname":$3,
+"Mail":$4
+}
+
+ ]
+ }
+}
+<Out><Name>$1</Name></Out>
+
+json-eval($.Employees.Employee)
+
+<yes><FullName>$1</FullName></yes>
+
+fn:concat(//Fname," ",//Lname)
+
+$body/Employee
+
+
+ {
+ "employee": 
+ {
+ 
+ "First_Name": "$1",
+ "Last_Name":"$2",
+ "Mail":"$3"
+ }
+ 
+ }
+
+
+[{"id":"id","address":"address","mail":"mail","state":"state","name":"name"},{"id":"730","address":"chilakaguda Secunderabad Telangana 500009","mail":"ajayakula@gmail.com","state":"India Telangana","name":"Ajaya Akula"},{"id":"731","address":"Old Bowenpally Secunderabad Telangana 500011","mail":"dubaishaik@gmail.com","state":"Dubai","name":"Prashanth Boppena"},{"id":"732","address":"SRCL KArimnager Telangana 505405","mail":"raju2000@gmail.com","state":"USA","name":"Raju B"},{"id":"733","address":"Nuzividu Vaizag A.P","mail":"rakesh.knot@gmail.com","state":"India","name":"Rakesh V"},{"id":"734","address":"Pune Maharastra 504050","mail":"mahesh.maile@gmail.com","state":"India MH","name":"Mahesh M"},{"id":"735","address":"mumbai Maharastra 504050","mail":"nagesh.ch@gmail.com","state":"India MH","name":"nagesh ch"},{"id":"736","address":"Kurnool A.P India 548976","mail":"govardhan1999@gmail.com","state":"Malasiya","name":"govardha G"},{"id":"737","address":"bezzanki siddipet India 548976","mail":"saleem1997@gmail.com","state":"China","name":"saleem Md"}]
+
+
+
+{
+	"first_name":"pashi",
+	"last_name":"B",
+	"age":25,
+	"location":{
+		"state":{
+			"code":"NY",
+			"name":"New York"
+		},
+		"city":"Manhattan"
+	}
+}
+
+
+
+<body>
+   
+    
+      <id>140</id>
+     
+      <fname>hhcc</fname>
+    
+      <lname>cbdcd</lname>
+   
+      <mail>cndsncdi</mail>
+   
+</body>
+
+
+{
+ "employees": {
+ "employee": [
+ {
+ "id": "35",
+ "fname": "muppaifive",
+ "lname":"dswer",
+ "mail":"vgt@gmail.com"
+ }
+ ]
+ }
+}
+
+/120/jhcjic/chcuihe/chwioch
+/{id}/{fname}/{lname}/{mail}
+
+https://ei.docs.wso2.com/en/latest/micro-integrator/references/connectors/file-connector/file-connector-example/
+
+
+
+curl -H "Content-Type: application/xml" --request POST --data @fileconnectorgoogle.xml http://localhost:8290/fileTest

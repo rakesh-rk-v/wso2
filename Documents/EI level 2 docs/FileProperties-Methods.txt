@@ -1,0 +1,11 @@
+ <log level="custom">
+                <property expression="get-property('file','Username')" name="user"/>
+                <property expression="get-property('file','Password')" name="password"/>
+                <property expression="get-property('system','properties.file.path')" name="Path"/>
+                <property expression="get-property('file','AddressReadEP')" name="EP"/>
+                <property expression="get-property('registry','gov:/custom/dev.properties')" name="PropReg"/>
+            </log>
+            <property expression="get-property('registry','gov:dev.properties')" name="PropReg" scope="default" type="STRING"/>
+           
+
+For EP:$FILE:AddressReadEP
